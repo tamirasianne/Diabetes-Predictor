@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diabetes Risk Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background: #ffffff;
+            width: 400px;
+            margin: 40px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        label {
+            display: block;
+            margin: 8px 0 4px 0;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        select, button {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #2e86de;
+            color: #ffffff;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1b4f72;
+        }
+
+        h2 {
+            color: #2e86de;
+        }
+
+        .result {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Diabetes Risk Predictor</h2>
+
+    <form action="/predict" method="post">
+
+        <label for="Sex">Sex:</label>
+        <select id="Sex" name="Sex" required>
+            <option value="">Select</option>
+            <option value="0">Male</option>
+            <option value="1">Female</option>
+        </select>
+
+        <label for="Age">Age Group:</label>
+        <select id="Age" name="Age" required>
+            <option value="">Select</option>
+            <option value="1">18–34</option>
+            <option value="2">35–54</option>
+            <option value="3">55–99</option>
+        </select>
+
+        <label for="Exercise">Exercise in Past 30 Days:</label>
+        <select id="Exercise" name="Exercise" required>
+            <option value="">Select</option>
+            <option value="0">Yes</option>
+            <option value="1">No</option>
+        </select>
+
+        <label for="BMI">BMI Category:</label>
+        <select id="BMI" name="BMI" required>
+            <option value="">Select</option>
+            <option value="1">Underweight</option>
+            <option value="2">Normal</option>
+            <option value="3">Overweight</option>
+            <option value="4">Obese</option>
+        </select>
+
+        <label for="GeneralHealth">General Health:</label>
+        <select id="GeneralHealth" name="GeneralHealth" required>
+            <option value="">Select</option>
+            <option value="0">Good</option>
+            <option value="1">Average</option>
+            <option value="2">Poor</option>
+        </select>
+
+        <label for="Race">Race:</label>
+        <select id="Race" name="Race" required>
+            <option value="">Select</option>
+            <option value="1">White</option>
+            <option value="2">Black</option>
+            <option value="3">Hispanic</option>
+            <option value="4">Asian</option>
+            <option value="5">Other</option>
+        </select>
+
+        <label for="HeavySmoker">Heavy Smoker:</label>
+        <select id="HeavySmoker" name="HeavySmoker" required>
+            <option value="">Select</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="HeavyAlcohol">Heavy Alcohol Use:</label>
+        <select id="HeavyAlcohol" name="HeavyAlcohol" required>
+            <option value="">Select</option>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <button type="submit">Predict</button>
+
+    </form>
+
+    <div class="result">
+        {{ prediction_text }}
+    </div>
+
+</div>
+
+</body>
+</html>
